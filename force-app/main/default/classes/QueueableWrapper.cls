@@ -20,29 +20,26 @@ public abstract class QueueableWrapper implements Queueable {
 
     public class QueueableChain implements Queueable {
         private List<Queueable> chain = new List<Queueable>();
-        private Queueable current;
-
         public void execute(QueueableContext ctx) {
+            if (this.chain.isEmpty()) {
+                return;
+            }
+            Queueable current = this.chain.remove(0);
+
             if (!this.chain.isEmpty()) {
                 for (Queueable queueable : this.chain) {
                     enqueue(queueable);
                 }
             }
 
-            if (this.current == null) {
-                return;
-            }
-
-            this.current.execute(ctx);
+            current.execute(ctx);
         }
 
         public void add(Queueable queueable) {
-            if (this.current == null) {
-                this.current = queueable;
-            } else {
-                this.chain.add(queueable);
+            if (queueable == null) {
+                return;
             }
-
+            this.chain.add(queueable);
         }
 
         public void commitQueue() {
