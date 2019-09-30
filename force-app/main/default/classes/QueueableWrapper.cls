@@ -11,23 +11,23 @@ public abstract class QueueableWrapper implements Queueable {
         currentChain.commitQueue();
     }
 
-    public static void enqueue(Queueable queueable) {
+    public static void enqueue(QueueableWrapper queueable) {
         currentChain.add(queueable);
         if (!System.isQueueable()) {
             System.enqueueJob(queueable);
         }
     }
 
-    public class QueueableChain implements Queueable {
-        private List<Queueable> chain = new List<Queueable>();
+    private class QueueableChain implements Queueable {
+        private List<QueueableWrapper> chain = new List<QueueableWrapper>();
         public void execute(QueueableContext ctx) {
             if (this.chain.isEmpty()) {
                 return;
             }
-            Queueable current = this.chain.remove(0);
+            QueueableWrapper current = this.chain.remove(0);
 
             if (!this.chain.isEmpty()) {
-                for (Queueable queueable : this.chain) {
+                for (QueueableWrapper queueable : this.chain) {
                     enqueue(queueable);
                 }
             }
@@ -35,7 +35,7 @@ public abstract class QueueableWrapper implements Queueable {
             current.execute(ctx);
         }
 
-        public void add(Queueable queueable) {
+        public void add(QueueableWrapper queueable) {
             if (queueable == null) {
                 return;
             }
