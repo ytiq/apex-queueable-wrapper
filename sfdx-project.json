@@ -6,6 +6,9 @@
     },
     {
       "path": "example_base"
+    },
+    {
+      "path": "example_standard"
     }
   ],
   "namespace": "",
