@@ -46,6 +46,6 @@ public abstract class QueueableWrapper implements Queueable {
             System.enqueueJob(this);
         }
     }
-    public static QueueableChain currentChain = new QueueableChain();
+    private static final QueueableChain currentChain = new QueueableChain();
 }
 
