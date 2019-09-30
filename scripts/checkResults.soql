@@ -1,0 +1,2 @@
+SELECT Id, Name
+FROM Cool_Object__c

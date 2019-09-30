@@ -1,0 +1,1 @@
+insert new Cool_Object__c(Name = 'Test');
