@@ -29,7 +29,7 @@ public abstract class QueueableWrapper implements Queueable, Database.AllowsCall
 
             if (!this.chain.isEmpty()) {
                 for (QueueableWrapper queueable : this.chain) {
-                    enqueue(queueable);
+                    enqueueJob(queueable);
                 }
             }
 
