@@ -1,4 +1,4 @@
-public abstract class QueueableWrapper implements Queueable {
+public abstract class QueueableWrapper implements Queueable, Database.AllowsCallouts {
     private static Integer counter = 0;
     public String name;
     public QueueableWrapper(String name) {
