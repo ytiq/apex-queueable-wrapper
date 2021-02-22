@@ -12,7 +12,7 @@ public abstract class QueueableWrapper implements Queueable, Database.AllowsCall
         currentChain.commitQueue();
     }
 
-    public static void enqueue(QueueableWrapper queueable) {
+    public static void enqueueJob(QueueableWrapper queueable) {
         currentChain.add(queueable);
         if (!System.isQueueable()) {
             System.enqueueJob(queueable);
