@@ -19,7 +19,7 @@ public abstract class QueueableWrapper implements Queueable, Database.AllowsCall
         }
     }
 
-    private class QueueableChain implements Queueable {
+    private class QueueableChain implements Queueable, Database.AllowsCallouts {
         private List<QueueableWrapper> chain = new List<QueueableWrapper>();
         public void execute(QueueableContext ctx) {
             if (this.chain.isEmpty()) {
