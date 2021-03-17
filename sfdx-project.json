@@ -8,7 +8,7 @@
       "path": "example_base"
     },
     {
-      "path": "example_standard"
+      "path": "example_queueableWrapper"
     }
   ],
   "namespace": "",
