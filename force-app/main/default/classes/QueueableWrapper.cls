@@ -44,6 +44,9 @@ public abstract class QueueableWrapper implements Queueable, Database.AllowsCall
         }
 
         public void commitQueue() {
+            if (this.chain.isEmpty()) {
+                return;
+            }
             System.enqueueJob(this);
         }
     }
