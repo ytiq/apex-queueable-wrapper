@@ -6,17 +6,13 @@ public with sharing class CoolObjectHandler {
 
         switch on operation {
             when AFTER_INSERT {
-                integration1(records);
-                integration2(records);
+                complexIntegration(records);
             }
         }
     }
 
-    private static void integration1(List<Cool_Object__c> records) {
-        QueueableWrapper.enqueue(new Queueable1(records));
-    }
-    private static void integration2(List<Cool_Object__c> records) {
-        QueueableWrapper.enqueue(new Queueable2(records));
+    private static void complexIntegration(List<Cool_Object__c> records) {
+        QueueableWrapper.enqueueJob(new SuperIntegrationQueueable(records));
     }
 
 }
