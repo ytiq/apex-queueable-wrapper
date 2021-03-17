@@ -9,3 +9,6 @@ System.enqueueJob for working with Queueables.
 **_example_queueableWrapper_** instead of **_example_standard_**
 
 More detailed documentation will be coming soon...
+
+Here is the link to Medium where I try to explaing how it works
+https://medium.com/noltic/apex-queueable-and-easy-chaining-34838eaa718a
