@@ -8,7 +8,7 @@ public with sharing class SuperIntegrationQueueable extends QueueableWrapper imp
     }
 
     public void work() {
-        QueueableWrapper.enqueueJob(new Queueable1(records));
-        QueueableWrapper.enqueueJob(new Queueable2(records));
+        QueueableBase.enqueueJob(new Queueable1(records));
+        QueueableBase.enqueueJob(new Queueable2(records));
     }
 }

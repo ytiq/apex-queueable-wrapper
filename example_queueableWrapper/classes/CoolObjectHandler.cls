@@ -12,7 +12,7 @@ public with sharing class CoolObjectHandler {
     }
 
     private static void complexIntegration(List<Cool_Object__c> records) {
-        QueueableWrapper.enqueueJob(new SuperIntegrationQueueable(records));
+        QueueableBase.enqueueJob(new SuperIntegrationQueueable(records));
     }
 
 }

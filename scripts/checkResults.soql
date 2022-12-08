@@ -1,2 +1,2 @@
-SELECT Id, Name
-FROM Cool_Object__c
+SELECT CreatedDate, Name FROM Account
+ORDER BY CreatedDate DESC
